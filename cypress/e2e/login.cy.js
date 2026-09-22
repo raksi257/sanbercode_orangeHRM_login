@@ -107,15 +107,32 @@ describe("verifikasi fungsi login", () => {
     cy.visit(
       "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
     );
-    cy.get('input[name="username"]').type("Admin");
-    cy.get('input[name="password"]').type("admin123");
-    cy.get('button[type="submit"]').click();
-    cy.get(".oxd-topbar-header-title").should("contain", "Dashboard");
-    //profil
-    cy.get(".oxd-userdropdown-tab").should("be.visible").click();
-    cy.contains("Logout").should("be.visible").click();
-    cy.get("svg").should("be.visible");
-    cy.url().should("include", "/auth/login");
+    it("TC-LOGIN-011 - Logout Setelah Login", () => {
+      // Login
+      cy.get('input[name="username"]').should("be.visible").type("Admin");
+
+      cy.get('input[name="password"]').should("be.visible").type("admin123");
+
+      cy.get('button[type="submit"]').should("be.visible").click();
+
+      // Validasi berhasil login
+      cy.get(".oxd-topbar-header-title")
+        .should("be.visible")
+        .and("contain", "Dashboard");
+
+      // Buka menu profil
+      cy.get(".oxd-userdropdown-tab").should("be.visible").click();
+
+      // Klik Logout
+      cy.contains("Logout").should("be.visible").click();
+
+      // Validasi kembali ke halaman login
+      cy.url().should("include", "/auth/login");
+
+      cy.get('input[name="username"]').should("be.visible");
+
+      cy.get('input[name="password"]').should("be.visible");
+    });
   });
   it("TC-012-Akses dashboard tanpa autentikasi", () => {
     cy.visit(
