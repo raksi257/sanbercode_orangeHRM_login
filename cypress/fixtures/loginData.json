@@ -1,0 +1,8 @@
+{
+  "usernamevalid": "admin",
+  "passwordvalid": "admin123",
+  "usernameinvalid": "adminnnnn",
+  "passwordinvalid": "admin123456",
+  "userspasi": " admin",
+  "passwordSensitivity": "ADMIN123"
+}
