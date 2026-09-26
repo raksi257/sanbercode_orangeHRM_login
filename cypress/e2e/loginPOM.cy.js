@@ -1,5 +1,5 @@
 import loginPage from "../support/loginPage";
-import loginData from "../fixtures/loginData.json";
+import testData from "../fixtures/testData";
 
 describe("verifikasi fungsi login", () => {
   it("TC-001-Login dengan username valid password valid", () => {
@@ -7,8 +7,8 @@ describe("verifikasi fungsi login", () => {
       "contohSummary",
     );
     loginPage.masukHalaman();
-    loginPage.masukUsername(loginData.usernamevalid);
-    loginPage.masukPasssword(loginData.passwordvalid);
+    loginPage.masukUsername(testData.usernamevalid);
+    loginPage.masukPasssword(testData.passwordvalid);
     loginPage.clickLogin();
     loginPage.verifikasiLink();
     cy.wait("@contohSummary").its("response.statusCode").should("eq", 200);
@@ -29,8 +29,8 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.Usernamesalah(loginData.usernameinvalid);
-    loginPage.Passswordsalah(loginData.passwordinvalid);
+    loginPage.Usernamesalah(testData.usernameinvalid);
+    loginPage.Passswordsalah(testData.passwordinvalid);
     loginPage.clickLogin();
     loginPage.invlidCredentials();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
@@ -41,8 +41,8 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.masukUsername(loginData.usernamevalid);
-    loginPage.Passswordsalah(loginData.passwordinvalid);
+    loginPage.masukUsername(testData.usernamevalid);
+    loginPage.Passswordsalah(testData.passwordinvalid);
     loginPage.clickLogin();
     loginPage.invlidCredentials();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
@@ -53,7 +53,7 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.Passswordsalah(loginData.passwordvalid);
+    loginPage.Passswordsalah(testData.passwordvalid);
     loginPage.clickLogin();
     loginPage.required();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
@@ -64,7 +64,7 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.masukUsername(loginData.usernamevalid);
+    loginPage.masukUsername(testData.usernamevalid);
     loginPage.clickLogin();
     loginPage.required();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
@@ -75,8 +75,8 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.masukUsername(loginData.userspasi);
-    loginPage.Passswordsalah(loginData.passwordvalid);
+    loginPage.masukUsername(testData.userspasi);
+    loginPage.Passswordsalah(testData.passwordvalid);
     loginPage.clickLogin();
     loginPage.invlidCredentials();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
@@ -87,8 +87,8 @@ describe("verifikasi fungsi login", () => {
       "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
     ).as("halamanAwal");
     loginPage.masukHalaman();
-    loginPage.masukUsername(loginData.usernamevalid);
-    loginPage.Passswordsalah(loginData.passwordSensitivity);
+    loginPage.masukUsername(testData.usernamevalid);
+    loginPage.Passswordsalah(testData.passwordSensitivity);
     loginPage.clickLogin();
     loginPage.invlidCredentials();
     cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);

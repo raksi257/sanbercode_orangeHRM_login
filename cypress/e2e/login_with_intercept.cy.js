@@ -31,6 +31,10 @@ describe("verifikasi fungsi login", () => {
     cy.wait(1000);
   });
   it("TC-003-Login dengan username valid password tidak valid", () => {
+    cy.intercept(
+      "GET",
+      "https://opensource-demo.orangehrmlive.com/web/index.php/core/i18n/messages",
+    ).as("halamanAwal");
     cy.visit(
       "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
     );
@@ -40,6 +44,7 @@ describe("verifikasi fungsi login", () => {
     cy.get(".oxd-alert-content-text")
       .should("be.visible")
       .and("contain", "Invalid credentials");
+    cy.wait("@halamanAwal").its("response.statusCode").should("eq", 200);
   });
   it("TC-004-Login dengan username valid password valid dengan link lain", () => {
     cy.visit(

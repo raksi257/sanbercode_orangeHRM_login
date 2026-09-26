@@ -1,0 +1,22 @@
+{
+  "usernamevalid": "admin",
+  "passwordvalid": "admin123",
+  "usernameinvalid": "adminnnnn",
+  "passwordinvalid": "admin123456",
+  "userspasi": " admin",
+  "passwordSensitivity": "ADMIN123",
+
+  "employeeSearch": "Peter",
+  "employeeName": "Peter Mac Anderson",
+  "employeeNameNotFound": "ZZNotFound123",
+  "employeeNamePartial": "Lin",
+  "jobTitle": "Account Assistant",
+  "location": "New York Sales Office",
+  "specialCharacter": "@@@###",
+
+  "candidateName": "Gautham Raj R",
+  "candidateNameNotFound": "NotFound",
+  "pilihVacancy": "Junior Account Assistant",
+  "candidateManager": "Rahul Patil",
+  "pilihStatus": "Shortlisted"
+}
